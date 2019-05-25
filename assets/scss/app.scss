@@ -1,9 +1,13 @@
 @import "vars";
 
-body {
-    background-color: $secondary-color;
+h1{
+    color: $primary-color;
 }
 
-a {
+h2{
+    color: $secondary-color;
+}
+
+h3{
     color: $warm-color;
 }
