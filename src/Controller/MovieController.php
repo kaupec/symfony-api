@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Movie;
 use App\Repository\MovieRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -32,6 +34,19 @@ class MovieController extends AbstractController
     {
         $movies = $this->serializer->serialize($movieRepository->findAll(), 'json');
         return new JsonResponse(json_decode($movies));
+    }
+
+    /**
+     * @Route("/add", name="movie_add", methods={"POST"})
+     */
+    public function add(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $movie = new Movie();
+        $movie->setName($request->request->get('name'));
+        $movie->setUrl($request->request->get('url'));
+        $entityManager->persist($movie);
+        $entityManager->flush();
+        return new JsonResponse();
     }
 
     /**

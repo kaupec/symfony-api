@@ -3,62 +3,92 @@
 {% block title %}Api Documentation{% endblock %}
 
 {% block body %}
-    <h1>API Documentation</h1>
+    <div class="container">
+        <h1 class="text-center">API Documentation</h1>
+        <div id="accordion">
+            <h2 class="text-center">Movie</h2>
 
-    <h2>Movie</h2>
+            <div class="card">
+                <h3 class="card-title btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Get All Movies</h3>
+                <div id="collapseOne" class="collapse card-body" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div>
+                        <h4>URL</h4>
+                        <p>/movie</p>
+                    </div>
 
-    <div>
-        <h3>Get All Movies</h3>
+                    <div>
+                        <h4>Method</h4>
+                        <p>GET</p>
+                    </div>
 
-        <div>
-            <h4>URL</h4>
-            <p>/movie</p>
-        </div>
+                    <div>
+                        <h4>Response</h4>
+                        <h5>Code</h5>
+                        <p>200</p>
+                        <h5>Content</h5>
+                        <code>
+                            [
+                                { id : 1, name : "Movie1 Title", url: "https://movies.com/movie1" },
+                                { id : 2, name : "Movie2 Title", url: "https://movies.com/movie2" }
+                            ]
+                        </code>
+                    </div>
+                </div>
+            </div>
 
-        <div>
-            <h4>Method</h4>
-            <p>GET</p>
-        </div>
+            <div class="card">
+                <h3 class="card-title btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Get Movie by Id</h3>
+                <div id="collapseTwo" class="collapse card-body" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div>
+                        <h4>URL</h4>
+                        <p>/movie/{id}</p>
+                    </div>
 
-        <div>
-            <h4>Response</h4>
-            <h5>Code</h5>
-            <p>200</p>
-            <h5>Content</h5>
-            <code>
-                [
-                    { id : 1, name : "Movie1 Title", url: "https://movies.com/movie1" },
-                    { id : 2, name : "Movie2 Title", url: "https://movies.com/movie2" }
-                ]
-            </code>
-        </div>
-    </div>
+                    <div>
+                        <h4>Method</h4>
+                        <p>GET</p>
+                    </div>
 
-    <div>
-        <h3>Get Movie by Id</h3>
+                    <div>
+                        <h4>Response</h4>
+                        <h5>Code</h5>
+                        <p>200</p>
+                        <h5>Content</h5>
+                        <code>
+                            { id : 12, name : "Movie2 Title", url: "https://movies.com/movie2" }
+                        </code>
+                    </div>
+                    <div>
+                        <h4>Params</h4>
+                        <p>id=[integer] => REQUIRED</p>
+                    </div>
+                </div>
+            </div>
 
-        <div>
-            <h4>URL</h4>
-            <p>/movie/{id}</p>
-        </div>
+            <div class="card">
+                <h3 class="card-title btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Add Movie</h3>
+                <div id="collapseTwo" class="collapse card-body" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div>
+                        <h4>URL</h4>
+                        <p>/movie/add</p>
+                    </div>
 
-        <div>
-            <h4>Method</h4>
-            <p>GET</p>
-        </div>
+                    <div>
+                        <h4>Method</h4>
+                        <p>POST</p>
+                    </div>
 
-        <div>
-            <h4>Response</h4>
-            <h5>Code</h5>
-            <p>200</p>
-            <h5>Content</h5>
-            <code>
-                { id : 12, name : "Movie2 Title", url: "https://movies.com/movie2" }
-            </code>
-        </div>
-        <div>
-            <h4>Params</h4>
-            <p>id=[integer] => REQUIRED</p>
+                    <div>
+                        <h4>Response</h4>
+                        <h5>Code</h5>
+                        <p>200</p>
+                    </div>
+                    <div>
+                        <h4>Params : POST Body</h4>
+                        <code>{ name: "Title", url: "https://title.url" }</code>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
