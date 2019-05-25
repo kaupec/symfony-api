@@ -1,10 +1,13 @@
-# Project 3 - Starter Kit - Symfony 4.2.8
+# Symfony API example
 
 ### Install
 
 1. Clone this project
 2. Run `composer install`
 3. Run `yarn install`
+4. Create `.env.local` based on `.env` file
+5. Run `bin/console doctrine:database:create`
+6. Run `bin/console doctrine:migration:migrate`
 
 ### Working
 
